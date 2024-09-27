@@ -1,31 +1,18 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHistory('/tianjin/settleAccount/'),
-  // history: createWebHashHistory('/settleAccount/'),
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',
-      redirect: '/settlement'
+      redirect: '/chat'
     },
     {
-      path: '/settlement',
-      name: 'settlement',
-      component: () => import('@/views/settlementSystem/index.vue'),
-      meta: {
-        keepAlive: false
-      }
+      path: '/chat',
+      name: 'chat',
+      component: () => import('@/views/chart/index.vue')
     }
-  ],
-  scrollBehavior(to, from, savedPosition) {
-    if (to.path === '/' && savedPosition) {
-      return {
-        ...savedPosition
-      }
-    } else {
-      return { top: 0 }
-    }
-  }
+  ]
 })
 
 export default router

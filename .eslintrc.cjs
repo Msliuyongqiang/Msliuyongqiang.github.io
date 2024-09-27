@@ -7,7 +7,8 @@ module.exports = {
     'plugin:vue/vue3-essential',
     'eslint:recommended',
     '@vue/eslint-config-prettier/skip-formatting',
-    './.eslintrc-auto-import.json'
+    './.eslintrc-auto-import.json',
+    'plugin:prettier/recommended'
   ],
   globals: {
     ElMessage: 'readonly',
@@ -19,8 +20,8 @@ module.exports = {
     ecmaVersion: 'latest'
   },
   rules: {
-    indent: [2, 2, { SwitchCase: 1 }],
-    'prettier/prettier': [2, { tabWidth: 2, endOfLine: 'auto' }],
-    'vue/multi-word-component-names': 0
+    // indent: [2, 2, { SwitchCase: 1 }],
+    'vue/multi-word-component-names': 0,
+    'max-len': ['error', { code: 300 }]
   }
 }

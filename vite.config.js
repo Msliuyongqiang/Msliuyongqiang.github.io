@@ -3,26 +3,21 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
 import createVitePlugins from './vite/plugins'
 import postcsspxtoviewport from 'postcss-px-to-viewport-update'
-import { pathResolve } from './src/utils/common'
 
 export default defineConfig(({ command, mode }) => {
-  const env = loadEnv(mode, pathResolve('./env'), '')
+  // eslint-disable-next-line no-undef
+  const root = process.cwd() // 获取当前工作目录
+  const env = loadEnv(mode, root) // 加载环境变量
+  console.log(env)
+
   return {
-    base: env.VITE_BASE,
-    plugins: createVitePlugins(command === 'build'),
-    envDir: pathResolve('./env'),
-    // base: '/',
+    base: './',
     server: {
       port: 2024,
       host: '0.0.0.0',
-      proxy: {
-        '/settlement': {
-          target: env.VITE_APP_BASE_URL_PROXY,
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/settlement/, '')
-        }
-      }
+      proxy: {}
     },
+    plugins: createVitePlugins(command === 'build'),
     build: {
       rollupOptions: {
         output: {
@@ -56,7 +51,7 @@ export default defineConfig(({ command, mode }) => {
       preprocessorOptions: {
         // 导入scss预编译程序
         scss: {
-          // additionalData: `@use "@/assets/style/mixin.scss" as *;`
+          additionalData: `@use "@/assets/style/mixin.scss" as *;`
         }
       },
       postcss: {

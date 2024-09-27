@@ -39,6 +39,7 @@
     "nextTick": true,
     "onActivated": true,
     "onBeforeMount": true,
+    "onBeforeRouteEnter": true,
     "onBeforeRouteLeave": true,
     "onBeforeRouteUpdate": true,
     "onBeforeUnmount": true,
