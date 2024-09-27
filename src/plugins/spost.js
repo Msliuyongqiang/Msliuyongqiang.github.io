@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getBaseUrl } from '../utils/common'
+import { getBaseUrl } from '@/utils/common'
 class PromiseState {
   constructor() {
     this.p = false // 进行进行中标准，pending, processing
