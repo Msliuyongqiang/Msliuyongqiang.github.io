@@ -1,0 +1,1 @@
+import{_ as a}from"./index.B2HeUkjQ.js";import{i as o,j as e,o as n}from"./vendor.CMxRXM2l.js";const r={class:"container"},d=a({},[["render",function(t,s){return n(),o("div",r,s[0]||(s[0]=[e("div",null,"vue3+js",-1)]))}],["__scopeId","data-v-9cebf4ab"]]);export{d as default};
